@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <!-- <div style="height: 510px;width: 100px;"></div> -->
+    <input type="text">
+    <ul id="ull">
+        <li>1111111111</li>
+        <li>2222222222</li>
+        <li>3333333333</li>
+        <li>4444444444</li>
+    </ul>
+    <img src="img/1.jpg" style="width: 100px; height: 50px; position: relative;" alt="">
+</body>
+<script>
+    var input = document.getElementsByTagName('input')[0];
+    var li = document.getElementsByTagName("li");
+    var ul = document.getElementById("ull");
+    var img1 = document.getElementsByTagName("img")[0]
+    valu = 0
+    input.addEventListener("blur", function () {
+        valu += 10;
+        img1.style.top = +valu + 'px'
+    })
+    ul.onclick = function () {
+        console.log("点击率ul");
+    }
+    for (let i = 0; i < li.length; i++) {
+        li[i].addEventListener("click", function () {
+            event.stopPropagation()
+            console.log("li下标" + i);
+            this.innerText = input.value;
+            // window.open("#");
+        })
+        li[i].addEventListener("mouseenter", function () {
+            img1.style.display = 'block';
+        })
+        li[i].addEventListener("mouseleave", function () {
+            img1.style.display = 'none';
+        })
+    }
+</script>
+
+<!-- 
+<script>
+    lis = [1, 2, 3, 4, 5, 6]
+    lis.unshift(99)
+    console.log(lis);
+    lis.shift()
+    console.log(lis);
+    index = lis.indexOf(99)//对应值的下标
+    console.log(index);
+    index = lis.lastIndexOf(3)
+    console.log(index);
+
+
+    function ss(i) {
+
+        for (let b = 2; b < i; b++) {
+            if (i % b == 0) {
+                return false
+            }
+            return true
+        }
+    }
+    // #对比函数
+    function su(i) {
+        // #把i拆成两个相加等i的
+        let a = Math.floor(i / 2 + 1);
+        for (let b = 2; b < a; b++) {
+            if (ss(b) && ss(i - b)) {
+                return true
+            }
+        }
+    }
+    var gd = true
+    // #运行判断循环的数
+    for (let i = 8; i <= 1000; i += 2) {
+        if (!su(i)) {
+            gd = false
+            break
+        }
+    }
+
+    alert(gd)
+
+</script> -->
+
+
+
+<!-- <script>
+    var a = document.getElementsByTagName("body")[0]
+    a.onclick = function () {
+        var a = prompt("请输入一位数")
+        for (var i = a.length; i > 0; i--) {
+            b = Math.floor(a / 10)
+            c = a - b * 10
+            alert(c)
+            a = b
+        }
+    }
+    flag = 0
+    for (let i = 0; i <= 100; i += 2) {
+        flag += i
+    }
+    alert(flag)
+    for (let i = 0; i < 11; i++) {
+        if (i == 4) {
+            continue //跳过
+            break //推出循环
+        }
+        console.log(i);
+    }
+</script> -->
+
+</html>
